@@ -2,8 +2,7 @@ export function initializeMap(mapboxgl, map) {
 
 
   map.on("click", "unclustered-point", function (e) {
-    var coordinates = e.features[0][0].geometry.coordinates.slice();
-    //var coordinates = e.features[0][0][0][0].coordinates.slice();
+    var coordinates = e.features[0].geometry.coordinates.slice();
     //var mag = e.features[0].properties.mag;
     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
       coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
