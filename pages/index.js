@@ -34,6 +34,12 @@ export default function Home() {
       pitch: 45,
     });
 
+    // add zoom and rotate
+    const navControl = new mapboxgl.NavigationControl({
+      visualizePitch: true, // Adds pitch buttons (optional)
+    });
+    map.addControl(navControl, "top-right");
+    
     initializeMap(mapboxgl, map);
     setMap(map);
   }, []);
