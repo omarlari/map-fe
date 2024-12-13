@@ -7,9 +7,14 @@ export function initializeMap(mapboxgl, map) {
     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
       coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
     }
+    const popupContent = `
+    <h3>${properties.title}</h3>
+    <p><strong>Venue:</strong> ${properties.venue}</p>
+    <p><strong>Event Count:</strong> ${properties.event_count}</p>
+  `;
     new mapboxgl.Popup()
       .setLngLat(coordinates)
-      .setHTML("This is a spot yo")
+      .setHTML(popupContent)
       .addTo(map);
   });
   
